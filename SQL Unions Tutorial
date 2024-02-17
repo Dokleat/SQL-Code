@@ -1,0 +1,17 @@
+SELECT 
+    Orders.ID AS OrderID,
+    Customers.FirstName,
+    Customers.LastName,
+    Customers.Address,
+    Customers.Email,
+    Customers.PhoneNumber,
+    Products.ProductName,
+    Products.Description,
+    Products.Price,
+    Orders.Quantity,
+    Orders.OrderDate,
+    Orders.Status
+FROM 
+    Orders
+JOIN Customers ON Orders.CustomerID = Customers.ID
+JOIN Products ON Orders.ProductID = Products.ID;
