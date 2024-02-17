@@ -1,0 +1,24 @@
+-- Using TRIM functions to clean up customer names by removing spaces from both ends
+SELECT TRIM(FirstName) AS CleanFirstName FROM Customers;
+
+-- Using LTRIM function to specifically trim spaces from the left (beginning) of the customer's address
+SELECT LTRIM(Address) AS LeftTrimmedAddress FROM Customers;
+
+-- Using RTRIM function to remove spaces from the right (end) of the customer's address
+SELECT RTRIM(Address) AS RightTrimmedAddress FROM Customers;
+
+-- Using REPLACE function to modify product descriptions by replacing a specific substring
+-- Example: Changing 'High-performance' to 'Advanced' in the description of products
+SELECT Description, REPLACE(Description, 'High-performance', 'Advanced') AS UpdatedDescription FROM Products;
+
+-- Using SUBSTRING function to extract a portion of the product name
+-- This example gets the first 5 characters from the product name to create a short name
+SELECT ProductName, SUBSTRING(ProductName, 1, 5) AS ShortName FROM Products;
+
+-- Using UPPER function to convert the customer's first name to uppercase
+-- This is useful for standardizing name entries in reports or data analysis
+SELECT FirstName, UPPER(FirstName) AS UpperCaseFirstName FROM Customers;
+
+-- Using LOWER function to convert the product name to lowercase
+-- Helps in standardizing product names for consistency across the database
+SELECT ProductName, LOWER(ProductName) AS LowerCaseProductName FROM Products;
