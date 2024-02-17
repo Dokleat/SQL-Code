@@ -1,0 +1,78 @@
+Table 1 Query:
+
+CREATE TABLE Customers (
+    ID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Address VARCHAR(100),
+    Email VARCHAR(100),
+    PhoneNumber VARCHAR(20),
+    RegistrationDate DATE
+);
+
+Table 2 Query:
+
+CREATE TABLE Products (
+    ID INT PRIMARY KEY,
+    ProductName VARCHAR(50),
+    Description VARCHAR(255),
+    Price DECIMAL(10, 2),
+    QuantityInStock INT,
+    ProductionDate DATE,
+    ExpiryDate DATE
+);
+
+Table 3 Query:
+
+CREATE TABLE Orders (
+    ID INT PRIMARY KEY,
+    CustomerID INT,
+    ProductID INT,
+    Quantity INT,
+    OrderDate DATE,
+    Status VARCHAR(50),
+    FOREIGN KEY (CustomerID) REFERENCES Customers(ID),
+    FOREIGN KEY (ProductID) REFERENCES Products(ID)
+);
+
+Table 1 Insert:
+
+INSERT INTO Customers (ID, FirstName, LastName, Address, Email, PhoneNumber, RegistrationDate) VALUES
+(1, 'John', 'Doe', '123 Main St, Anytown, USA', 'john.doe@example.com', '555-1234', '2023-01-01'),
+(2, 'Jane', 'Smith', '456 Elm St, Anycity, USA', 'jane.smith@example.com', '555-5678', '2023-02-15'),
+(3, 'Emily', 'Jones', '789 Pine St, Sometown, USA', 'emily.jones@example.com', '555-9012', '2023-03-01'),
+(4, 'Michael', 'Brown', '321 Oak St, Yourtown, USA', 'michael.brown@example.com', '555-3456', '2023-04-01'),
+(5, 'Jessica', 'Taylor', '654 Maple St, Theirtown, USA', 'jessica.taylor@example.com', '555-7890', '2023-05-20'),
+(6, 'David', 'Wilson', '987 Cedar St, Webtown, USA', 'david.wilson@example.com', '555-6789', '2023-06-10'),
+(7, 'Sarah', 'Moore', '246 Birch St, Netown, USA', 'sarah.moore@example.com', '555-5432', '2023-07-05'),
+(8, 'James', 'Anderson', '135 Willow St, Sitetown, USA', 'james.anderson@example.com', '555-4321', '2023-08-15'),
+(9, 'Laura', 'Thomas', '864 Poplar St, Placetown, USA', 'laura.thomas@example.com', '555-9876', '2023-09-25'),
+(10, 'Robert', 'Jackson', '483 Spruce St, Towncity, USA', 'robert.jackson@example.com', '555-5674', '2023-10-30');
+
+Table 2 Insert:
+
+INSERT INTO Products (ID, ProductName, Description, Price, QuantityInStock, ProductionDate, ExpiryDate) VALUES
+(1, 'Laptop', 'High-performance laptop suitable for gaming and professional work', 1200.00, 10, '2023-01-01', '2025-01-01'),
+(2, 'Smartphone', 'Latest model with high-resolution camera and long-lasting battery', 800.00, 15, '2023-02-01', '2024-12-31'),
+(3, 'Headphones', 'Wireless headphones with noise cancellation features', 150.00, 25, '2023-03-01', '2025-02-28'),
+(4, 'Smartwatch', 'Waterproof smartwatch with health and fitness tracking', 199.99, 30, '2023-04-01', '2024-11-30'),
+(5, 'Tablet', 'Lightweight tablet with large screen for entertainment and work', 450.00, 20, '2023-05-15', '2025-05-15'),
+(6, 'E-reader', 'Dedicated e-reader device for reading ebooks with e-ink technology', 130.00, 40, '2023-06-10', '2027-06-09'),
+(7, 'Gaming Console', 'Latest generation gaming console for immersive gaming experiences', 499.99, 15, '2023-07-20', '2025-07-19'),
+(8, 'Bluetooth Speaker', 'Portable Bluetooth speaker with high-quality sound', 99.99, 50, '2023-08-25', '2026-08-24'),
+(9, 'Camera', 'DSLR camera with high resolution and video recording capabilities', 1200.00, 10, '2023-09-05', '2028-09-04'),
+(10, 'Laptop Stand', 'Ergonomic laptop stand for comfortable typing and viewing', 60.00, 100, '2023-10-10', '2030-10-09');
+
+Table 3 Insert:
+
+INSERT INTO Orders (ID, CustomerID, ProductID, Quantity, OrderDate, Status) VALUES
+(1, 1, 1, 1, '2023-02-15', 'Pending'),
+(2, 2, 3, 2, '2023-02-16', 'In Process'),
+(3, 3, 2, 1, '2023-02-17', 'Shipped'),
+(4, 4, 4, 1, '2023-02-18', 'Pending'),
+(5, 5, 5, 2, '2023-02-19', 'In Process'),
+(6, 6, 7, 1, '2023-02-20', 'Shipped'),
+(7, 7, 6, 2, '2023-02-21', 'Pending'),
+(8, 8, 8, 1, '2023-02-22', 'In Process'),
+(9, 9, 9, 1, '2023-02-23', 'Shipped'),
+(10, 10, 10, 2, '2023-02-24', 'Pending');
